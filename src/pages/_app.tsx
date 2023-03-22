@@ -1,6 +1,25 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from "next/app";
+
+import "@/styles/globals.scss";
+import "@/styles/custom.scss";
+
+import { ModalContextProvider } from "@/contexts/modal-context";
+
+import { Poppins } from "next/font/google";
+
+import create from "zustand";
+
+const poppins = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <div className={poppins.className}>
+      <ModalContextProvider>
+        <Component {...pageProps} />
+      </ModalContextProvider>
+    </div>
+  );
 }

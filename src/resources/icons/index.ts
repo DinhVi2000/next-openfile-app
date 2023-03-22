@@ -1,0 +1,10 @@
+export { default as IconVerified } from "./verified.svg";
+export { default as IconDiscord } from "./discord.svg";
+export { default as IconInstagram } from "./instagram.svg";
+export { default as IconStar } from "./star.svg";
+export { default as IconTelegram } from "./telegram.svg";
+export { default as IconTwitter } from "./twitter.svg";
+export { default as IconWebsite } from "./website.svg";
+export { default as IconOpenSea } from "./opensea.svg";
+export { default as IconPublic } from "@mui/icons-material/Public";
+export { default as IconLock } from "@mui/icons-material/Lock";
