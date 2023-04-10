@@ -1,29 +1,55 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import BoxModal from "./BoxModal";
 
 import IconClose from "@mui/icons-material/Close";
 import IconKeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import { IconLock, IconPublic } from "@/resources/icons";
+import { useOnClickOutside } from "@/hooks/useOnClickOutside";
+import { useModalContext } from "@/contexts/modal-context";
+import Dropdown from "@/components/custom/Dropdown";
 
 const CreateCollection = () => {
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  const { closeModal } = useModalContext();
+
+  useOnClickOutside(modalRef, closeModal);
+
+  const options = [
+    {
+      label: "Public",
+      value: "public",
+      icon: <IconPublic className="text-grey text-base" />,
+    },
+    {
+      label: "Private",
+      value: "private",
+      icon: <IconLock className="text-grey text-base" />,
+    },
+  ];
+
   return (
     <BoxModal>
-      <div className="bg-white rounded-xl ">
+      <div ref={modalRef} className="bg-white rounded-xl w-full max-w-[400px]">
         {/* header */}
-        <header className="px-6 py-4 border-b-[1px] border-gray-200">
-          <div className="font-semibold text-center px-7 relative">
+        <header className="px-6 py-4 border-b-[1px] border-gray-200 relative">
+          <div className="text-lg font-semibold text-center px-7 relative">
             Create new collection
           </div>
+          <IconClose
+            className="absolute top-4 right-6 cursor-pointer"
+            onClick={closeModal}
+          />
         </header>
         {/* section */}
-        <section className="py-4 px-6">
+        <section className="pt-4 px-6">
           <div className="flex">
             <input
               type="text"
               className="border border-gray-200 border-r-transparent rounded-l-xl p-3 outline-none text-sm w-full"
               placeholder="collection name"
             />
-            <Dropdown />
+            <Dropdown options={options} />
           </div>
         </section>
         {/* footer */}
@@ -38,25 +64,3 @@ const CreateCollection = () => {
 };
 
 export default CreateCollection;
-
-const Dropdown = () => {
-  return (
-    <div className="p-3 border border-gray-200 rounded-r-xl cursor-pointer flex items-center gap-1 text-sm relative">
-      Public
-      <IconKeyboardArrowDown className="text-grey" />
-      {/* content */}
-      <div className="rounded-[10px] bg-white shadow-dd absolute z-40 top-full right-[-10px]">
-        {/* item */}
-        <div className="p-4 border-b-[1px] border-gray-200 flex items-center gap-2">
-          <IconPublic className="text-grey text-base" />
-          Public
-        </div>
-        {/* item */}
-        <div className="p-4 border-b-[1px] border-gray-200 flex items-center gap-2">
-          <IconLock className="text-grey text-base" />
-          Private
-        </div>
-      </div>
-    </div>
-  );
-};

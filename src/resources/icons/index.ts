@@ -8,3 +8,7 @@ export { default as IconWebsite } from "./website.svg";
 export { default as IconOpenSea } from "./opensea.svg";
 export { default as IconPublic } from "@mui/icons-material/Public";
 export { default as IconLock } from "@mui/icons-material/Lock";
+export { default as IconClose } from "@mui/icons-material/Close";
+export { default as IconAccount } from "@mui/icons-material/AccountCircleOutlined";
+export { default as IconUser } from "@mui/icons-material/Person";
+export { default as IconLogin } from "@mui/icons-material/LoginOutlined";
