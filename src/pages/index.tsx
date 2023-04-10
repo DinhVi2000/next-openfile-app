@@ -27,10 +27,12 @@ export default function Home() {
     return () => {};
   }, []);
 
+  const title = "test";
+
   return (
     <>
       <Head>
-        <title>Openfile | file online web</title>
+        <title>{title || "Openfile | file online web"}</title>
       </Head>
       <MainLayout>
         <div>
