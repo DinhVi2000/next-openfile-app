@@ -14,11 +14,3 @@ export default function About() {
     </>
   );
 }
-
-export async function getStaticProps(context: GetStaticPropsContext) {
-  console.log("about call");
-
-  return {
-    props: {}, // will be passed to the page component as props
-  };
-}
