@@ -5,6 +5,7 @@ import Tabs from "@/components/collection/Tabs";
 import MainLayout from "@/layouts/MainLayout";
 import Link from "next/link";
 import { useEffect } from "react";
+import SEO from "@/components/SEO";
 
 export default function Home() {
   useEffect(() => {
@@ -31,9 +32,10 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>{title || "Openfile | file online web"}</title>
-      </Head>
+      <SEO
+        title="Openfile | file online web"
+        description="Open file description"
+      />
       <MainLayout>
         <div>
           <Banner />
