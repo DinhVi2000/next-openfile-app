@@ -21,12 +21,12 @@ const SEO = ({
       />
 
       {/* info */}
-      <title>{title}</title>
-      <meta name="title" content={title}></meta>
+      <title>{title || "default title"}</title>
+      <meta name="title" content={title || "default title"}></meta>
       <meta name="description" content={description} />
 
       {/* facebook */}
-      <meta property="og:title" content={title}></meta>
+      <meta property="og:title" content={title || "default title"}></meta>
       <meta property="og:type" content="website"></meta>
       <meta property="og:image" content={image}></meta>
       <meta property="og:image:width" content="500" />
