@@ -6,8 +6,10 @@ import MainLayout from "@/layouts/MainLayout";
 import Link from "next/link";
 import { useEffect } from "react";
 import SEO from "@/components/SEO";
+import axios from "axios";
 
-export default function Home() {
+export default function Home({ data }: any) {
+  console.log("data :", data);
   useEffect(() => {
     const str = "1oiG";
     const array1 = [/\d/, /[a-z]/, /[A-Z]/];
@@ -15,15 +17,8 @@ export default function Home() {
     // 0 + 1 + 2 + 3 + 4
     let initVal = true;
     const sumWithInitial = array1.reduce((acc, cur, index, arr): any => {
-      console.log("index :", index);
-      console.log("cur :", cur);
-      console.log("acc :", acc);
-      console.log("arr :", arr);
-
-      console.log("cur.test(str) :", cur.test(str));
       if (!cur.test(str)) acc = false;
     }, initVal);
-    console.log("sumWithInitial :", sumWithInitial);
 
     return () => {};
   }, []);
@@ -32,10 +27,7 @@ export default function Home() {
 
   return (
     <>
-      <SEO
-        title="OpenFile | file online web"
-        description="Open file description"
-      />
+      <SEO title={data?.title} description="Open file description" />
       <MainLayout>
         <div>
           <Banner />
@@ -47,10 +39,21 @@ export default function Home() {
   );
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  if (typeof window !== "undefined") localStorage.getItem("token");
+export async function getStaticProps(context: any) {
+  try {
+    const { data } = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos/1"
+    );
+    console.log("data :", data);
 
-  return {
-    props: {}, // will be passed to the page component as props
-  };
+    return {
+      props: {
+        data,
+      },
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
 }
