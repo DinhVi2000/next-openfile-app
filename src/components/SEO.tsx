@@ -25,19 +25,12 @@ const SEO = ({ title, description, image }: Props) => {
       <meta property="og:title" content={title}></meta>
       <meta property="og:type" content="website"></meta>
       <meta property="og:image" content={image}></meta>
-      <meta
-        property="og:url"
-        content={"https://next-openfile-app.vercel.app/"}
-      ></meta>
+      <meta property="og:image:width" content="500" />
+      <meta property="og:image:height" content="500" />
       <meta property="og:description" content={description} />
 
       {/* twitter */}
       <meta property="twitter:card" content="summary_large_image" />
-      <meta
-        property="twitter:url"
-        content={"https://next-openfile-app.vercel.app/"}
-      />
-      <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={image}></meta>
     </Head>
