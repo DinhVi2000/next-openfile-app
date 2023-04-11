@@ -1,11 +1,13 @@
 import CreateCollection from "@/components/modal/CreateCollection";
 import { MODAL_NAME } from "@/utils/constants";
+import { sleep } from "@/utils/helper";
 import React, {
   createContext,
   useContext,
   useMemo,
   useState,
   useCallback,
+  useEffect,
 } from "react";
 
 interface modalProvider {
@@ -35,12 +37,18 @@ export const useModalContext = () => {
 export const ModalContextProvider = ({ children }: any) => {
   const [modal, setModal] = useState<MODAL_NAME>(MODAL_NAME.NONE);
 
+  const [isOpen, setIsOpen] = useState(false);
+
   const closeModal = useCallback(() => {
     setModal(MODAL_NAME.NONE);
   }, []);
 
   const openModal = useCallback((modalName: MODAL_NAME) => {
     setModal(modalName);
+  }, []);
+
+  useEffect(() => {
+    sleep(100).then(() => setIsOpen(true));
   }, []);
 
   const modalProvider: modalProvider = useMemo(
@@ -55,7 +63,7 @@ export const ModalContextProvider = ({ children }: any) => {
   return (
     <ModalContext.Provider value={{ modalProvider }}>
       {Modal[modal]}
-      {children}
+      {isOpen && children}
     </ModalContext.Provider>
   );
 };

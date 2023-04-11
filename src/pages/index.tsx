@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Openfile | file online web"
+        title="OpenFile | file online web"
         description="Open file description"
       />
       <MainLayout>

@@ -4,9 +4,10 @@ import React from "react";
 interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
-const SEO = ({ title, description }: Props) => {
+const SEO = ({ title, description, image }: Props) => {
   return (
     <Head>
       <title>{title}</title>
