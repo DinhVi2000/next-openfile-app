@@ -7,7 +7,11 @@ interface Props {
   image?: string;
 }
 
-const SEO = ({ title, description, image }: Props) => {
+const SEO = ({
+  title,
+  description,
+  image = "https://h5.4j.com/thumb/Fastlane-Road-To-Revenge-Online.jpg",
+}: Props) => {
   return (
     <Head>
       <link rel="icon" href="/favicon.ico" />
