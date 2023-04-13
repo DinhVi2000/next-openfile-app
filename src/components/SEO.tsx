@@ -19,6 +19,10 @@ const SEO = ({
         name="viewport"
         content="width=device-width, initial-scale=1, user-scalable=no"
       />
+      <meta
+        name="keywords"
+        content="openfile, open file, manage your file, vind1905"
+      ></meta>
 
       {/* info */}
       <title>{title || "default title"}</title>
