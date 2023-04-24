@@ -4,6 +4,7 @@ import "@/styles/globals.scss";
 import "@/styles/custom.scss";
 
 import { ModalContextProvider } from "@/contexts/modal-context";
+import { AuthContextProvider } from "@/contexts/auth-context";
 
 import { Poppins } from "next/font/google";
 
@@ -26,7 +27,9 @@ export default function App({ Component, pageProps }: AppProps) {
         showOnShallow={true}
       />
       <ModalContextProvider>
-        <Component {...pageProps} />
+        <AuthContextProvider>
+          <Component {...pageProps} />
+        </AuthContextProvider>
       </ModalContextProvider>
     </div>
   );

@@ -1,5 +1,7 @@
-export const staticPaths = {
-  home: "/",
-  login: "/login",
-  profile: "/account",
+export const path = {
+  static: {
+    home: "/",
+    login: "/login",
+    profile: "/account",
+  },
 };

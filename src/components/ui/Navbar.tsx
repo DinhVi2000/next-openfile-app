@@ -9,7 +9,7 @@ import React from "react";
 import IconSearch from "@mui/icons-material/Search";
 import Tippy from "../custom/Tippy";
 import { useRouter } from "next/router";
-import { staticPaths } from "@/utils/$path";
+import { path } from "@/utils/$path";
 
 const Navbar = () => {
   const router = useRouter();
@@ -18,21 +18,21 @@ const Navbar = () => {
     {
       label: "Profile",
       handleClick: () => {
-        router.push(staticPaths.profile);
+        router.push(path.static.profile);
       },
       icon: <IconUser className="text-[22px]" />,
     },
     {
       label: "Login",
       handleClick: () => {
-        router.push(staticPaths.login);
+        router.push(path.static.login);
       },
       icon: <IconLogin className="text-[22px]" />,
     },
   ];
 
   return (
-    <div className="px-16 bg-white w-full h-[72px] flex items-center sticky top-0 z-20 ">
+    <div className="px-8 bg-white w-full h-[72px] flex items-center fixed top-0 z-20 ">
       {/* logo */}
       <div className="flex items-center gap-2 mr-12">
         <IconOpenSea className="w-10 h-10" />

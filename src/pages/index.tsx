@@ -38,22 +38,3 @@ export default function Home({ data }: any) {
     </>
   );
 }
-
-export async function getStaticProps(context: any) {
-  try {
-    const { data } = await axios.get(
-      "https://jsonplaceholder.typicode.com/todos/1"
-    );
-    console.log("data :", data);
-
-    return {
-      props: {
-        data,
-      },
-    };
-  } catch (error) {
-    return {
-      notFound: true,
-    };
-  }
-}

@@ -3,7 +3,7 @@ import React from "react";
 
 const MainLayout = ({ children }: any) => {
   return (
-    <div>
+    <div className="mt-[72px]">
       <Navbar />
       {children}
     </div>
